@@ -26,19 +26,26 @@ public class InMemoryEstoqueService implements IEstoqueService {
         return this.estoque.getOrDefault(produto.getId(), 0);
     }
 
+    private void sleep(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
     @Override
     public boolean reservar(Pedido pedido) {
-
         // reservar apenas caso todos os itens do pedido estiverem disponivel no estoque
         for (ItemPedido item : pedido.getItens()) {
-
             int qtdDisponivel = this.quantidadeDisponivel(item.getProduto());
 
             if (item.getQuantidade() > qtdDisponivel) {
                 return false; // se NAO retornar 'falso' todos os itens possuem estoque
             }
-
         }
+
+        this.sleep(50);
 
         // remover quantidade garantida em pedido
         for (ItemPedido item : pedido.getItens()) {
