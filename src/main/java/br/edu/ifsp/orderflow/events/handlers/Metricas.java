@@ -1,4 +1,4 @@
-package br.edu.ifsp.orderflow.handlers;
+package br.edu.ifsp.orderflow.events.handlers;
 
 public class Metricas {
     private int qtdAprovado = 0;
@@ -21,6 +21,6 @@ public class Metricas {
     }
 
     public String resumo() {
-        return "Métricas: "+ this.qtdAprovado + " aprovado(s), " + this.qtdReprovado + "recusado(s)";
+        return "Métricas: "+ this.qtdAprovado + " aprovado(s), " + this.qtdReprovado + " recusado(s)";
     }
 }

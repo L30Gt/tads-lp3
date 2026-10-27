@@ -1,4 +1,4 @@
-package br.edu.ifsp.orderflow.handlers;
+package br.edu.ifsp.orderflow.events.handlers;
 
 import br.edu.ifsp.orderflow.domain.Pedido;
 import br.edu.ifsp.orderflow.events.IEventHandler;
